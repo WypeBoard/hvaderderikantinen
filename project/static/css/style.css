@@ -1,0 +1,142 @@
+body {
+    background: whitesmoke;
+}
+
+.menu {
+    background: white;
+    margin: auto;
+    width: 800px;
+    margin-bottom: -1px;
+    font-family: "arial";
+    border-style: solid;
+    border-color: grey;
+    border-width: 1px;
+    overflow: hidden;
+}
+
+.menu.future{
+    color: grey;
+}
+
+.menu.today{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.menu-wrapper{
+    display: flex;
+}
+
+.menu-content-wrapper{
+    width: 94%;
+    flex-grow: 1;
+}
+
+.menu-content-wrapper.today {
+    background-color: aliceblue;
+    font-style: italic;
+}
+
+.menu-vote-wrapper {
+    width: 6%;
+    background-color: lightgrey;
+}
+
+.menu-tekst {
+    font-size: 1.2em;
+    margin: 2px;
+}
+
+.menu-dato {
+    margin: 2px;
+    margin-bottom: 5px;
+    font-size: 0.8em;
+    color: dimgrey;
+}
+
+.menu-votes-wrapper {
+    margin: auto;
+    justify-content: center;
+    display: flex;
+}
+
+
+.menu-votes{
+    margin-left: 2px;
+    margin-right: 2px;
+    text-align: center;
+    overflow: hidden;
+    font-size: 0.8em;
+    font-weight: bold;
+    color: black;
+}
+
+.menu-votes.pos {
+    color: green;
+}
+
+.menu-votes.neg {
+    color: firebrick;
+}
+
+.arrow-up {
+    margin: auto;
+    margin-bottom: 3px;
+    margin-top: 5px;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 10px 10px 10px;
+    border-color: transparent transparent black transparent;
+}
+
+.arrow-up:hover {
+    border-color: transparent transparent white transparent;
+}
+
+.arrow-up.voted {
+    border-color: transparent transparent darkgrey transparent;
+}
+
+.arrow-up.voted:hover{
+    border-color: transparent transparent darkgrey transparent;
+}
+.arrow-up.disabled {
+    border-color: transparent transparent lightgrey transparent;
+}
+
+.arrow-up.disabled:hover{
+    border-color: transparent transparent lightgrey transparent;
+}
+
+
+.arrow-down {
+    margin: auto;
+    margin-top: 3px;
+    margin-bottom: 10px;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 10px 10px 0 10px;
+    border-color: black transparent transparent transparent;
+}
+
+.arrow-down:hover {
+    border-color: white transparent transparent transparent;
+}
+
+
+.arrow-down.voted {
+    border-color: darkgrey transparent transparent transparent;
+}
+
+.arrow-down.voted:hover{
+    border-color: darkgrey transparent transparent transparent;
+}
+.arrow-down.disabled {
+    border-color: lightgrey transparent transparent transparent;
+}
+
+.arrow-down.disabled:hover{
+    border-color: lightgrey transparent transparent transparent;
+}

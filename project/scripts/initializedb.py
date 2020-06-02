@@ -1,21 +1,19 @@
 import os
 import sys
-import transaction
 
+import transaction
 from pyramid.paster import (
     get_appsettings,
     setup_logging,
-    )
-
+)
 from pyramid.scripts.common import parse_vars
 
-from ..models.meta import Base
 from ..models import (
     get_engine,
     get_session_factory,
     get_tm_session,
-    )
-from ..models import ret
+)
+from ..models.meta import Base
 
 
 def usage(argv):
@@ -23,6 +21,14 @@ def usage(argv):
     print('usage: %s <config_uri> [var=value]\n'
           '(example: "%s development.ini")' % (cmd, cmd))
     sys.exit(1)
+
+
+def initialize_db_with_prod_data(dbsession):
+    pass
+
+
+def initialize_db_with_dev_data(dbsession):
+    pass
 
 
 def main(argv=sys.argv):
@@ -40,6 +46,7 @@ def main(argv=sys.argv):
 
     with transaction.manager:
         dbsession = get_tm_session(session_factory, transaction.manager)
-
-        model = ret(item='mad', value=1)
-        dbsession.add(model)
+        if 'development.ini' in argv:
+            initialize_db_with_dev_data(dbsession)
+        else:
+            initialize_db_with_prod_data(dbsession)

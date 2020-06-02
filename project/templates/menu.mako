@@ -6,7 +6,7 @@
                 <h4 class="panel-title text-center">
                     <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#${week}"
                             aria-expanded="true" aria-controls="${week}">
-                        ${week}
+                        Uge ${week[4:]} ${week[:4]}
                     </button>
                 </h4>
             </div>
@@ -19,19 +19,19 @@
                         <th>Salat</th>
                         <th>Pålæg</th>
                         <th>Pålæg</th>
+                        <th>Fisk</th>
                         <th>Varm mad</th>
                         </thead>
                         % for day in menu[week]:
-                            <tr>
-                                <td>${day}</td>
-                                % for item in menu[week][day]:
-                                    <td>${menu[week][day][item]}</td>
+                            <tr class="${'table-primary' if menu[week][day]['dato'] == today else ''}">
+                                <td>${day}<br />${menu[week][day]['dato'][6:]}/${menu[week][day]['dato'][4:6]}</td>
+                                % for item in menu[week][day]['retter']:
+                                    <td>${menu[week][day]['retter'][item]}</td>
                                 % endfor
                             </tr>
                         % endfor
                     </table>
                 </div>
-
             </div>
         </div>
     % endfor

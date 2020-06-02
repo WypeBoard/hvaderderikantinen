@@ -10,10 +10,10 @@ class Menu(Base):
     id = Column(Integer, primary_key=True)
     fk_ret = relationship('Ret')
     dato = Column(Date)
-    oprettet = Column(Text)
-    oprettet_af = Column(DateTime(timezone=True), server_default=func.now())
-    aendret = Column(Text)
-    aendret_af = Column(DateTime(timezone=True), onupdate=func.now())
+    oprettet = Column(DateTime(timezone=True), server_default=func.now())
+    oprettet_af = Column(Text)
+    aendret = Column(DateTime(timezone=True), onupdate=func.now())
+    aendret_af = Column(Text)
 
 
 Index('ix_menu', Menu.id, unique=True, mysql_length=255)
